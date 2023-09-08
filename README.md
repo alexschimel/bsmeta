@@ -110,7 +110,7 @@ IMPORTANT: Do not change the VALUES of those fields as they allow identifying th
 |---|---|---|---|
 |metadata|name|Authority for this metadata template (DO NOT CHANGE)|NGU
 |metadata|version|Version of this metadata template (DO NOT CHANGE)|0.4
-|metadata|author|Authors of this metadata template (DO NOT CHANGE)|NGU (Alexandre Schimel;Margaret Dolan)
+|metadata|author|Authors of this metadata template (DO NOT CHANGE)|NGU (Alexandre Schimel; Margaret Dolan)
 |metadata|date|Date of creation of this metadata template (DO NOT CHANGE)|08/09/2023
 
 If you wish to modify this template, either mention it in the "comments" field, or contact us to produce a new version.
@@ -179,15 +179,15 @@ Contents of text file `Clinton-2022-m-block34_BS_v3.json`:
         "site": "B34",
         "vessel": "Northern Storm",
         "sonarModel": "Kongsberg EM2040",
-        "sonarSerialNumber": "2106",
-        "comments": "None"
+        "sonarSerialNumber": 2106,
+        "comments": "Surveyed over Aug 21-23, 2022"
     },
     "data": {
-        "frequencyKHz": "300",
-        "pulseLengthMicroSec": "?",
-        "acquisitionMode": "MediumCW",
-        "filesList": "file_1.all; file_2.all;...",
-        "comments": "None"
+        "frequencyKHz": 300,
+        "pulseLengthMicroSec": 0.000107,
+        "acquisitionMode": "Medium CW",
+        "filesList": "All files available",
+        "comments": "Very wide range of absorption coefficients in data"
     },
     "processing": {
         "processingMetadataSchema": "FMGT_v7.10.3_RevB",
