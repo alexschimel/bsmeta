@@ -24,8 +24,8 @@ This repository proposes such a metadata template and style.
     * Enough information to provide a good overview, but not so much that it is overwhelming and difficult to parse.
     * Descriptive and unambiguous field names
     * Broken down in thematic sections
-    * Every field to be optional, just fill what you can
-    * No requirement on format (number, text, boolean, etc.)
+    * Every field to be optional (just fill what you can)
+    * No requirements on fields format (number, text, boolean, etc.)
 
 * Machine-friendliness:
     * Machine-readable formats
