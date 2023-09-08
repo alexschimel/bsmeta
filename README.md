@@ -6,9 +6,7 @@ So you have just created a backscatter mosaic with your multibeam data processin
 
 Typically, you would write some information in the file's name: most likely the word "backscatter" or the initials "BS" at the very least, but also perhaps the survey area or surveyor name, and the survey year. For more information, maybe you can add the sonar model, or the grid size, or the version of that mosaic. So something like:
 
-```
-Clinton-2022-m-block34_BS_1m_v3.tif
-```
+   `Clinton-2022-m-block34_BS_v3.tif`
 
 Congratulations! You have started creating metadata.
 
