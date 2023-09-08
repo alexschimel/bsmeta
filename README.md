@@ -48,7 +48,7 @@ A section containing the basic information about the survey that produced the da
 |survey|vessel|Name of vessel|Northern Storm
 |survey|sonarModel|Name of sonar model|Kongsberg EM2040
 |survey|sonarSerialNumber|Serial number of sonar system|2106
-|survey|comments|Free text field|None
+|survey|comments|Free text field|Surveyed over Aug 21-23, 2022 
 
 No need to go into too many details here since this information is most likely also present in reports, and bathymetry metadata. In fact, the information in this section can most likely be directly obtained from any existing "acquisition metadata".
 
@@ -58,10 +58,10 @@ A section containing the basic information about the data that went into the mos
 |Parent node|Field|Description|Example|
 |---|---|---|---|
 |data|frequencyKHz|Operating frequency in kHz|300
-|data|pulseLengthMicroSec|Pulse length in microseconds|?
-|data|acquisitionMode|Sonar acquisition mode|mediumCW
-|data|filesList|List of raw data files used in mosaic separated by semicolons|file_1.all; file_2.all; ...
-|data|comments|Free text field|None
+|data|pulseLengthMicroSec|Pulse length in microseconds|0.000107
+|data|acquisitionMode|Sonar acquisition mode|Medium CW
+|data|filesList|List of raw data files used in mosaic separated by semicolons|All files available 
+|data|comments|Free text field|Very wide range of absorption coefficients in data
 
 The difference with the previous section is that the information here might be variable within the dataset, so while the information from the previous section could be just copied-and-pasted from the "acquisition metadata", this one may here need some adjustment by the author of the mosaic. For example, we include here the list of files that actually went into the mosaic, or the frequency used for the mosaic (the dataset may be multispectral). 
 
