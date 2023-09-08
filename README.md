@@ -4,13 +4,17 @@
 
 So you have just created a backscatter mosaic with your multibeam data processing software and exported it as a .tif file. Now how do you inform this file's future users about all that this file represents?
 
-Typically, you would write some information in the file's name: the word "backscatter" or the initials "BS" at least, but also most likely the survey area and survey year. Maybe you add the sonar model and the grid size.
+Typically, you would write some information in the file's name: the word "backscatter" or the initials "BS" at least, but also most likely the survey area and survey year. Maybe you add the sonar model and the grid size. So something like:
+
+```
+MAREANO-B53_2022_BS_EM2040_1m.tif
+```
 
 Congratulations! You have started creating metadata.
 
 The problem is that there is a limit to filenames length, so what about all the rest of the information? What about the frequency? The software used? The processing applied? The files that went in? Or even your name as the author?
 
-A proper data management practice would be to compile all the relevant information into a single place to live alongside the mosaic file. For even better practice, you would follow a template (so that all mosaic files have a metadata in same format), and write this information in a manner that is readable both by humans and machines.
+A proper data management practice would be to compile all the relevant information together to live alongside the mosaic file. For even better practice, you would follow a template (so that all mosaic files have a metadata in the same format), and write this information in a manner that is readable both by humans and machines.
 
 This repository proposes such a metadata template and style.
 
@@ -27,14 +31,14 @@ This repository proposes such a metadata template and style.
     * Machine-readable formats
     * Version control
 
-## Basic Template
+## Basic Template Contents
 
-The proposed template is organized into six thematic sections, or "parent nodes".
+The proposed template is to collate the basic information as pairs of field-value, organized into six thematic sections, or "parent nodes". 
+
+We list below our proposed sections and field-value pairs. See further below for the implementation.
 
 ### 1. survey
-A section containing the basic information about the survey that produced the dataset from which the mosaic was created. 
-
-No need to go into too many details here since this information is most likely also present in reports, and bathymetry metadata. In fact, the information in this section can most likely be directly obtained from any existing "acquisition metadata".
+A section containing the basic information about the survey that produced the dataset from which the mosaic was created:
 
 |Parent node|Field|Description|Example|
 |---|---|---|---|
@@ -44,16 +48,14 @@ No need to go into too many details here since this information is most likely a
 |survey|surveyor|Name of surveyors|Clinton Marine Survey
 |survey|site|Name of site|B34
 |survey|vessel|Name of vessel|Northern Storm
-|survey|sonarMode|Name of sonar model|EM2040
-|survey|sonarSerialNumber|Serial number of sonar system|123
-|survey|comments|Free text field|
+|survey|sonarModel|Name of sonar model|Kongsberg EM2040
+|survey|sonarSerialNumber|Serial number of sonar system|2106
+|survey|comments|Free text field|None
+
+No need to go into too many details here since this information is most likely also present in reports, and bathymetry metadata. In fact, the information in this section can most likely be directly obtained from any existing "acquisition metadata".
 
 ### 2. data
-A section containing the basic information about the data that went into the mosaic. 
-
-The difference with the previous section is that the information here might be variable within the dataset, so while the information from the previous section could be just copied-and-pasted from the "acquisition metadata", this one may here need some adjustment by the author of the mosaic. For example, we include here the list of files that actually went into the mosaic, or the frequency used for the mosaic (the dataset may be multispectral). 
-
-Writing settings here (frequency, acquisition mode) also emphasize the typical recommendation that backscatter mosaics be produced using data acquired in a constant setting.
+A section containing the basic information about the data that went into the mosaic:
 
 |Parent node|Field|Description|Example|
 |---|---|---|---|
@@ -61,22 +63,25 @@ Writing settings here (frequency, acquisition mode) also emphasize the typical r
 |data|pulseLengthMicroSec|Pulse length in microseconds|?
 |data|acquisitionMode|Sonar acquisition mode|mediumCW
 |data|filesList|List of raw data files used in mosaic separated by semicolons|file_1.all; file_2.all; ...
-|data|comments|Free text field|
+|data|comments|Free text field|None
 
+The difference with the previous section is that the information here might be variable within the dataset, so while the information from the previous section could be just copied-and-pasted from the "acquisition metadata", this one may here need some adjustment by the author of the mosaic. For example, we include here the list of files that actually went into the mosaic, or the frequency used for the mosaic (the dataset may be multispectral). 
+
+Writing settings here (frequency, acquisition mode) also emphasize the typical recommendation that backscatter mosaics be produced using data acquired in a constant setting.
 
 ### 3. processing
-A section containing the basic information about the processing applied to the data to produce the mosaic.
-
-Very basic here because any further details would be software-dependent. See below on how to augment this section with processing details.
+A section containing the basic information about the processing applied to the data to produce the mosaic:
 
 |Parent node|Field|Description|Example|
 |---|---|---|---|
 |processing|softwareName|Name of processing software|QPS FMGT
 |processing|softwareVersion|Version of processing software|7.10.3
-|processing|comments|Free text field|
+|processing|comments|Free text field|None
+
+Very basic here because any further details would be software-dependent. See below on how to augment this section with processing details.
 
 ### 4. mosaic
-A section containing the basic information about the mosaic created.
+A section containing the basic information about the mosaic created:
 
 |Parent node|Field|Description|Example|
 |---|---|---|---|
@@ -85,21 +90,21 @@ A section containing the basic information about the mosaic created.
 |mosaic|filename|Mosaic file name|Clinton-2022-m-block34_BS_v3.tif
 |mosaic|projection|Mosaic datum and projection|WGS84-UTM31N
 |mosaic|pixelSizeM|Pixel size in meters|1
-|mosaic|status|Mosaic version|preliminary
+|mosaic|status|Mosaic version|v3 (preliminary)
 |mosaic|comments|Free text field|Still a few artefacts to correct
 
 ### 5. qualityControl
-A section containing the basic information about any quality control performed on the mosaic itself.
+A section containing the basic information about any quality control performed on the mosaic itself:
 
 |Parent node|Field|Description|Example|
 |---|---|---|---|
 |qualityControl|author|QC author|Margaret Dolan
 |qualityControl|date|QC date|09/03/2023
 |qualityControl|grade|Quality grade|good
-|qualityControl|comments|Free text field|
+|qualityControl|comments|Free text field|None
 
 ### 6. metadata
-A section containing information about this metadata template.
+A section containing information about this metadata template:
 
 IMPORTANT: Do not change the VALUES of those fields as they allow identifying this specific template.
 
@@ -157,8 +162,9 @@ You can:
 * Save this information in a file that sits next to the mosaic, add it to an ArcGIS metadata file, in a database, or embedded in the geotiff's metadata.
 * If saved as a text file, you can format this information as XML, json, (or other machine-readable formats), .csv, plain text, excel file (or other human-readable formats).
 
-Our recommendation is to save all this information into a text file following the JSON format (see example below) and to give this file the same (or similar) name as the mosaic tif file so they can be kept together at all times. 
+Our recommendation is to save all this information into a text file following the JSON format (see example below) so that it is both Machine- and Human-readable and to give this file the same (or similar) name as the mosaic tif file so they can be kept together at all times. 
 
+Contents of text file `Clinton-2022-m-block34_BS_v3.json`:
 ```
 {
     "metadata": {
@@ -171,26 +177,24 @@ Our recommendation is to save all this information into a text file following th
         "project": "MAREANO",
         "year": 2022,
         "client": "Kartverket",
-        "surveyor": "Clinton",
+        "surveyor": "Clinton Marine Survey",
         "site": "B34",
         "vessel": "Northern Storm",
-        "sonarModel": "EM2040",
-        "sonarSerialNumber": "?",
+        "sonarModel": "Kongsberg EM2040",
+        "sonarSerialNumber": "2106",
         "comments": "None"
     },
     "data": {
         "frequencyKHz": "300",
         "pulseLengthMicroSec": "?",
         "acquisitionMode": "MediumCW",
-        "filesList": ["file_1.all", "file_2,all"],
+        "filesList": "file_1.all; file_2.all;...",
         "comments": "None"
     },
     "processing": {
-        "softwareName": "FMGT",
+        "processingMetadataSchema": "FMGT_v7.10.3_RevB",
+        "softwareName": "QPS FMGT",
         "softwareVersion": "7.10.3",
-        "comments": "None",
-        "processingMetadataName": "FMGT_v7.10.3",
-        "processingMetadataVersion": "B",
         "sourceData": "Beam time series",
         "referenceGridFilename": "B34_GRIDNODES.tif",	
         "absorptionCoefficient": "0 (default)",
@@ -205,7 +209,8 @@ Our recommendation is to save all this information into a text file following th
         "lineBlending": 20,
         "mosaicStyle": "blend",
         "filteringType": "dB Mean",
-        "fillGaps": true
+        "fillGaps": true,
+        "comments": "None"
     },
     "mosaic": {
         "author": "Alexandre Schimel",
@@ -213,7 +218,7 @@ Our recommendation is to save all this information into a text file following th
         "filename": "Clinton-2022-m-block34_BS_v3.tif",
         "projection": "WGS84-UTM31N",
         "pixelSize": 1,
-        "status": "preliminary",
+        "status": "v3 (preliminary)",
         "comments": "Still a few artefacts to correct"
     },
     "qualityControl": {
@@ -224,3 +229,8 @@ Our recommendation is to save all this information into a text file following th
     }
 }
 ```
+
+## Authors
+
+* Alexandre Schimel ([The Geological Survey of Norway](https://www.ngu.no), alexandre.schimel@ngu.no)
+* Margaret Dolan (The Geological Survey of Norway)
