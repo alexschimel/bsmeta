@@ -4,10 +4,10 @@
 
 So you have just created a backscatter mosaic with your multibeam data processing software and exported it as a .tif file. Now how do you inform this file's future users about all that this file represents?
 
-Typically, you would write some information in the file's name: the word "backscatter" or the initials "BS" at least, but also most likely the survey area and survey year. Maybe you add the sonar model and the grid size. So something like:
+Typically, you would write some information in the file's name: most likely the word "backscatter" or the initials "BS" at the very least, but also perhaps the survey area or surveyor name, and the survey year. For more information, maybe you can add the sonar model, or the grid size, or the version of that mosaic. So something like:
 
 ```
-MAREANO-B53_2022_BS_EM2040_1m.tif
+Clinton-2022-m-block34_BS_1m_v3.tif
 ```
 
 Congratulations! You have started creating metadata.
