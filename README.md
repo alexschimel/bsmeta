@@ -117,7 +117,7 @@ If you wish to modify this template, either mention it in the "comments" field, 
 
 |Parent node|Field|Description|Example|
 |---|---|---|---|
-|metadata|comments|Free text field|Template modified from original by John Smith, Antarctic Hydrographic Survey, on 03/072036
+|metadata|comments|Free text field|Template modified from original by John Smith, Antarctic Hydrographic Survey, on 03/07/2036
 
 ## Augmenting the Processing Section
 
