@@ -160,7 +160,7 @@ You can:
 * Save this information in a file that sits next to the mosaic, add it to an ArcGIS metadata file, in a database, or embedded in the geotiff's metadata.
 * If saved as a text file, you can format this information as XML, json, (or other machine-readable formats), .csv, plain text, excel file (or other human-readable formats).
 
-Our recommendation is to save all this information into a text file following the JSON format (see example below) so that it is both Machine- and Human-readable and to give this file the same (or similar) name as the mosaic tif file so they can be kept together at all times. 
+Our own practice at NGU is to save all this information into a text file following the JSON format so that it is both Machine- and Human-readable (see example below), and to give this file the same (or similar) name as the mosaic tif file so they can be kept together at all times. 
 
 Contents of text file `Clinton-2022-m-block34_BS_v3.json`:
 ```
