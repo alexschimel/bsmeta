@@ -2,38 +2,36 @@
 
 ## Background
 
-So you have just created a backscatter mosaic with your multibeam data processing software and exported it as a .tif file. Now how do you inform this file's future users about all that this file represents?
+You have just created a backscatter mosaic with your multibeam data processing software and exported it as a .tif file. How do you inform the future users of this file of what it represents?
 
-Typically, you would write some information in the file's name: most likely the word "backscatter" or the initials "BS" at the very least, but also perhaps the survey area or surveyor name, and the survey year. For more information, maybe you can add the sonar model, or the grid size, or the version of that mosaic. So something like:
+Typically, you would write some information as the file's name. You would most likely use the word "backscatter" or the initials "BS" at the very least, but also perhaps the survey area and year, or the name of the survey company. To provide additional information, maybe you would add the sonar model, or the grid size, or the version of that mosaic. So you would typicall name the .tif file something like `Clinton-2022-m-block34_BS_v3.tif`.
 
-   `Clinton-2022-m-block34_BS_v3.tif`
+This is metadata.
 
-Congratulations! You have started creating metadata.
+The problem is that there is a limit to a filename's length, so what about all the rest of the information you wish to convey? What about the frequency? The software used? The processing applied? The files that went in? Or even your name as the author?
 
-The problem is that there is a limit to filenames length, so what about all the rest of the information? What about the frequency? The software used? The processing applied? The files that went in? Or even your name as the author?
+A good data management practice would be to compile all this relevant information together to live alongside the .tif file. Even better practice would be to follow a template so that all mosaic files have a metadata in the same format, and have this template designed in a manner that is readable both by humans and machines.
 
-A proper data management practice would be to compile all the relevant information together to live alongside the mosaic file. For even better practice, you would follow a template (so that all mosaic files have a metadata in the same format), and write this information in a manner that is readable both by humans and machines.
-
-This repository proposes such a metadata template and style.
+This document proposes such a metadata template.
 
 ## Core Principles
 
 * Human-friendliness:
-    * Enough information to provide a good overview, but not so much that it is overwhelming and difficult to parse.
-    * Descriptive and unambiguous field names
-    * Broken down in thematic sections
-    * Every field to be optional (just fill what you can)
-    * No requirements on fields format (number, text, boolean, etc.)
+    * Sufficient information to provide a good overview, but not so much that it is overwhelming and difficult to read or understand.
+    * Descriptive and unambiguous field names.
+    * Broken-down in thematic sections.
+    * Every field to be optional (just fill what you can).
+    * No requirements on fields format (number, text, boolean, etc.).
 
 * Machine-friendliness:
-    * Machine-readable formats
-    * Version control
+    * Machine-readable format.
+    * Version control.
 
 ## Basic Template Contents
 
-The proposed template is to collate the basic information as pairs of field-value, organized into six thematic sections, or "parent nodes". 
+The proposed template is to collate the basic information as pairs of field/value, organized into six thematic sections, or "parent nodes". 
 
-We list below our proposed sections and field-value pairs. See further below for the implementation.
+We list below our proposed sections and field/value pairs. See further below for the implementation.
 
 ### 1. survey
 A section containing the basic information about the survey that produced the dataset from which the mosaic was created:
@@ -63,9 +61,9 @@ A section containing the basic information about the data that went into the mos
 |data|filesList|List of raw data files used in mosaic separated by semicolons|All files available 
 |data|comments|Free text field|Very wide range of absorption coefficients in data
 
-The difference with the previous section is that the information here might be variable within the dataset, so while the information from the previous section could be just copied-and-pasted from the "acquisition metadata", this one may here need some adjustment by the author of the mosaic. For example, we include here the list of files that actually went into the mosaic, or the frequency used for the mosaic (the dataset may be multispectral). 
+The difference with the previous section is that the information here might be variable within the dataset, so while the information from the previous section could be just copied-and-pasted from the "acquisition metadata", this one here may need some adjustment by the author of the mosaic. For example, we include here the list of files that actually went into the mosaic, or the frequency used for the mosaic (the dataset may be multispectral). 
 
-Writing settings here (frequency, acquisition mode) also emphasize the typical recommendation that backscatter mosaics be produced using data acquired in a constant setting.
+Writing key acquisition settings here (frequency, acquisition mode) also emphasize the typical recommendation that backscatter mosaics be produced using data acquired in a constant setting.
 
 ### 3. processing
 A section containing the basic information about the processing applied to the data to produce the mosaic:
@@ -76,7 +74,7 @@ A section containing the basic information about the processing applied to the d
 |processing|softwareVersion|Version of processing software|7.10.3
 |processing|comments|Free text field|None
 
-Very basic here because any further details would be software-dependent. See below on how to augment this section with processing details.
+Keeping this section basic because any further details would be software-dependent. See below on how to augment this section with processing details.
 
 ### 4. mosaic
 A section containing the basic information about the mosaic created:
@@ -106,15 +104,15 @@ A section containing information about this metadata template:
 
 IMPORTANT: Do not change the VALUES of those fields as they allow identifying this specific template.
 
-|Parent node|Field|Description|VALUES|
+|Parent node|Field|Description|VALUE|
 |---|---|---|---|
 |metadata|name|Authority for this metadata template (DO NOT CHANGE)|NGU
 |metadata|version|Version of this metadata template (DO NOT CHANGE)|0.4
 |metadata|author|Authors of this metadata template (DO NOT CHANGE)|NGU (Alexandre Schimel; Margaret Dolan)
 |metadata|date|Date of creation of this metadata template (DO NOT CHANGE)|08/09/2023
 
-If you wish to modify this template, either mention it in the "comments" field, or contact us to produce a new version.
-
+If you wish to modify this template, either mention it in the "metadata/comments" field below, or contact us to produce a new version.
+ 
 |Parent node|Field|Description|Example|
 |---|---|---|---|
 |metadata|comments|Free text field|Template modified from original by John Smith, Antarctic Hydrographic Survey, on 03/07/2036
@@ -143,24 +141,28 @@ Additional information about the processing applied would be welcome. Here is fo
 
 The problem here is that these fields are dependent on the processing software and the methodology used. If we use a different software, or a different version of the software, or even simpler we use a new method from the same software and version, this entire set needs to be modified. And if we do this, then the entire template is modified with every minute change in processing, and it is no longer a template.
 
-The way to solve this is that to control these processing details as a sub-template, with its own version control. 
+The way to solve this is that to control these processing details as a sub-template, with its own version control. Below is the additional field for version-control:
 
-Below is the additional field for version-control:
-
-|Parent node|Field|Description|Example|
+|Parent node|Field|Description|VALUE|
 |---|---|---|---|
 |processing|processingMetadataSchema|Version number for this processing sub-template (DO NOT CHANGE)|FMGT_v7.10.3_RevB
 
-
 ## In practice
 
-The proposed template can be put in practice in any way you see fit. 
+This proposed metadata template can be put implemented in any way you see fit, including:
+  * As an individual file to be kept next to the mosaic
+  * In an ArcGIS metadata file
+  * In a database
+  * Embedded in the geotiff's metadata
+  * etc.
 
-You can:
-* Save this information in a file that sits next to the mosaic, add it to an ArcGIS metadata file, in a database, or embedded in the geotiff's metadata.
-* If saved as a text file, you can format this information as XML, json, (or other machine-readable formats), .csv, plain text, excel file (or other human-readable formats).
+If saved as an individual text file, you may want to format this information in a machine-readable text format (XML, JSON, .csv, etc.).
 
-Our own practice at NGU is to save all this information into a text file following the JSON format so that it is both Machine- and Human-readable (see example below), and to give this file the same (or similar) name as the mosaic tif file so they can be kept together at all times. 
+This document's authors save their metadata in a text file following the JSON format so that it is both Machine- and Human-readable (see example below).
+
+The metadata file is given the same name as the mosaic tif file (except with the different extension) so they can be kept together as a pair. 
+
+![image](https://github.com/alexschimel/bsmeta/assets/8197102/ff9dc7cd-3028-4484-818a-09d8b6624940)
 
 Contents of text file `Clinton-2022-m-block34_BS_v3.json`:
 ```
