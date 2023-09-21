@@ -98,7 +98,7 @@ A section containing the basic information about any quality control performed o
 |---|---|---|---|
 |qualityControl|author|QC author|Margaret Dolan
 |qualityControl|date|QC date|09/03/2023
-|qualityControl|grade|Quality grade|good
+|qualityControl|grade|Quality grade|fair
 |qualityControl|comments|Free text field|None
 
 ### 6. metadata
