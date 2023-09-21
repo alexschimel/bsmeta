@@ -6,7 +6,9 @@ You have just created a backscatter mosaic with your multibeam data processing s
 
 Typically, you would write some information as the file's name. You would most likely use the word "backscatter" or the initials "BS" at the very least, but also perhaps the survey area and year, or the name of the survey company. To provide additional information, maybe you would add the sonar model, or the grid size, or the version of that mosaic. So you would typicall name the .tif file something like `Clinton-2022-m-block34_BS_v3.tif`.
 
-This is metadata.
+![image](https://github.com/alexschimel/bsmeta/assets/8197102/c7110ae8-99ab-472e-adcc-323f13e696a1)
+
+This is the beggining of metadata.
 
 The problem is that there is a limit to a filename's length, so what about all the rest of the information you wish to convey? What about the frequency? The software used? The processing applied? The files that went in? Or even your name as the author?
 
