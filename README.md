@@ -8,7 +8,7 @@ Typically, you would write some information as the file's name. You would most l
 
 ![image](https://github.com/alexschimel/bsmeta/assets/8197102/c7110ae8-99ab-472e-adcc-323f13e696a1)
 
-This is the beggining of metadata.
+This is the beginning of metadata.
 
 The problem is that there is a limit to a filename's length, so what about all the rest of the information you wish to convey? What about the frequency? The software used? The processing applied? The files that went in? Or even your name as the author?
 
