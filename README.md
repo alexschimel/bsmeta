@@ -89,7 +89,7 @@ A section containing the basic information about the mosaic created:
 |mosaic|projection|Mosaic datum and projection|WGS84-UTM31N
 |mosaic|pixelSizeM|Pixel size in meters|1
 |mosaic|status|Mosaic version|v3 (preliminary)
-|mosaic|comments|Free text field|Still a few artefacts to correct
+|mosaic|comments|Free text field|To update when provided with final bathymetry grid
 
 ### 5. qualityControl
 A section containing the basic information about any quality control performed on the mosaic itself:
@@ -98,7 +98,7 @@ A section containing the basic information about any quality control performed o
 |---|---|---|---|
 |qualityControl|author|QC author|Margaret Dolan
 |qualityControl|date|QC date|09/03/2023
-|qualityControl|grade|Quality grade|fair
+|qualityControl|grade|Quality grade|Fair
 |qualityControl|comments|Free text field|None
 
 ### 6. metadata
