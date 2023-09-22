@@ -221,12 +221,12 @@ Contents of text file `Clinton-2022-m-block34_BS_v3.json`:
         "projection": "WGS84-UTM31N",
         "pixelSize": 1,
         "status": "v3 (preliminary)",
-        "comments": "Still a few artefacts to correct"
+        "comments": "To update when provided with final bathymetry grid"
     },
     "qualityControl": {
         "author":"Margaret Dolan",
         "date": "09/03/2023",
-        "grade": "good",
+        "grade": "Fair",
         "comments": "None"
     }
 }
