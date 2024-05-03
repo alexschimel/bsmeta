@@ -33,6 +33,15 @@ This document proposes such a metadata template.
 
 The proposed template is to collate the basic information as pairs of field/value, organized into six thematic sections, or "parent nodes". 
 
+|Parent node|Description|
+|---|---|
+|survey|Information about the survey that produced the dataset|
+|data|Information about the data that went into the mosaic|
+|processing|Information about the processing that was applied to the data to produce the mosaic|
+|mosaic|Information about about the mosaic produced|
+|qualityControl|Information about quality control performed on the mosaic|
+|metadata|Information about this metadata template|
+
 We list below our proposed sections and field/value pairs. See further below for the implementation.
 
 ### 1. survey
