@@ -101,6 +101,16 @@ A section containing the basic information about any quality control performed o
 |qualityControl|grade|Quality grade|Fair
 |qualityControl|comments|Free text field|None
 
+The quality grade scale currently in use at NGU is the following: 
+
+|Quality grade|Description|
+|---|---|
+|Very Good|Data of high quality, no issues|
+|Good|Data of overall good quality with only minor issues affecting smaller parts of the mosaic (e.g. weather drop outs in places, minor processing artefacts)|
+|Fair|Data with moderate quality issues but overall fit for purpose (e.g. minor level changes, weather related noise)|
+|Poor|Data with substantial quality issues that will make interpretation challenging (e.g. widespread level changes or weather related noise)|
+|Very Poor|Data of very low quality with widespread issues which will make interpretation very difficult|
+
 ### 6. metadata
 A section containing information about this metadata template:
 
