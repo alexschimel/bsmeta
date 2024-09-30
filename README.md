@@ -1,10 +1,10 @@
-# Backscatter Metadata
+# BSMETA - NGU Backscatter Metadata Template v0.4
 
 ## Background
 
-You have just created a backscatter mosaic with your multibeam data processing software and exported it as a .tif file. How do you inform the future users of this file of what it represents?
+You have just created a backscatter mosaic with your multibeam data processing software and exported it as a .tif file. Now, how do you ensure that the future users of this raster know what it represents?
 
-Typically, you would write some information as the file's name. You would most likely use the word "backscatter" or the initials "BS" at the very least, but also perhaps the survey area and year, or the name of the survey company. To provide additional information, maybe you would add the sonar model, or the grid size, or the version of that mosaic. So you would typicall name the .tif file something like `Clinton-2022-m-block34_BS_v3.tif`.
+Typically, you would write some information as the file's name. You would most likely use the word "backscatter", or  the initials "BS" at the very least, but also perhaps the survey area and year, or the name of the survey company. To provide additional information, maybe you would add the sonar model, or the grid size, or the version of that mosaic. So you would typicall name the .tif file something like `Clinton-2022-m-block34_BS_v3.tif`.
 
 ![image](https://github.com/alexschimel/bsmeta/assets/8197102/c7110ae8-99ab-472e-adcc-323f13e696a1)
 
