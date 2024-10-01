@@ -247,6 +247,10 @@ Contents of text file `Clinton-2022-m-block34_BS_v3.json`:
 }
 ```
 
+## Resources
+
+Find avialable templates in `templates` folder.
+
 ## Authors
 
 * Alexandre Schimel ([The Geological Survey of Norway](https://www.ngu.no), alexandre.schimel@ngu.no)
