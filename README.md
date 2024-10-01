@@ -71,7 +71,7 @@ The `data` section contains basic information about the data that was processed 
 |data|frequencyKHz|Operating frequency in kHz|300
 |data|pulseLengthMicroSec|Pulse length in microseconds|0.000107
 |data|acquisitionMode|Sonar acquisition mode|Medium CW
-|data|filesList|List of raw data files used in mosaic separated by semicolons|All files available 
+|data|filesList|List of raw data files used in mosaic|All files available 
 |data|comments|Free text field|Very wide range of absorption coefficients in data
 
 While the previous `survey` section contained information about the survey as a whole, this distinct `data` section may be used to further specify which data of the survey was included in the processing. For example, we include here the list of files that actually went into the mosaic, or the frequency used for the mosaic (the dataset may be multispectral). 
@@ -162,7 +162,7 @@ The way to solve this is that to control these processing details as a sub-templ
 
 |Parent node|Field|Description|VALUE|
 |---|---|---|---|
-|processing|processingMetadataSchema|Version number for this processing sub-template (DO NOT CHANGE)|FMGT_v7.10.3_RevB
+|processing|processingMetadataSchema|Version number for this processing sub-template (DO NOT MODIFY)|FMGT_v7.10.3_RevB
 
 ## In practice
 
@@ -230,7 +230,7 @@ Contents of text file `Clinton-2022-m-block34_BS_v3.json`:
         "projection": "WGS84-UTM31N",
         "pixelSizeM": 1,
         "status": "v3 (preliminary)",
-        "comments": "To update when provided with final bathymetry grid"
+        "comments": "More details in processing log (C:\Path\to\Clinton-2022-m-block34_BS_Processing_log.doc)"
     },
     "qualityControl": {
         "author":"Margaret Dolan",
