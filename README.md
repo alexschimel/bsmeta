@@ -1,22 +1,22 @@
-# BSMETA - NGU Backscatter Metadata Template v0.4
+# BSMETA - NGU Backscatter Metadata Template v0.5
 
 ## Background
 
-You have just created a backscatter mosaic with your multibeam data processing software and exported it as a .tif file. Now, how do you ensure that the future users of this raster know what it represents?
+You have just finished processing the backscatter data of your new multibeam dataset into a backscatter mosaic, and exported it as a .tif file. Now, how do you ensure that the future users of this file will understand what it represents?
 
-Typically, you would write some information as the file's name. You would most likely use the word "backscatter", or  the initials "BS" at the very least, but also perhaps the survey area and year, or the name of the survey company. To provide additional information, maybe you would add the sonar model, or the grid size, or the version of that mosaic. So you would typicall name the .tif file something like `Clinton-2022-m-block34_BS_v3.tif`.
+Typically, you would give this file a name that include critical information about it. You would most likely use the word "backscatter", or  the initials "BS" at the very least, but also perhaps the survey area and year, or the name of the survey company. To provide additional information, maybe you would add the sonar model, or the grid size, or the version of that mosaic. So you would typicall name the .tif file something like `Clinton-2022-m-block34_BS_v3.tif`.
 
 ![image](https://github.com/alexschimel/bsmeta/assets/8197102/c7110ae8-99ab-472e-adcc-323f13e696a1)
 
-This is the beginning of metadata.
-
 The problem is that there is a limit to a filename's length, so what about all the rest of the information you wish to convey? What about the frequency? The software used? The processing applied? The files that went in? Or even your name as the author?
 
-A good data management practice would be to compile all this relevant information together to live alongside the .tif file. Even better practice would be to follow a template so that all mosaic files have a metadata in the same format, and have this template designed in a manner that is readable both by humans and machines.
+Information about a data product is called *metadata*, and using the file's name for metadata is not good data management practice. A better practice would be to compile all relevant/critical information together to live alongside the .tif file. Even better practice would be to follow a template so that all mosaic files have a metadata in the same format, and have this template designed in a manner that is readable both by humans and machines.
 
 This document proposes such a metadata template.
 
 ## Core Principles
+
+We propose to define a metadata template for backscatter mosaics with the following core principles in mind:
 
 * Human-friendliness:
     * Sufficient information to provide a good overview, but not so much that it is overwhelming and difficult to read or understand.
@@ -29,6 +29,8 @@ This document proposes such a metadata template.
     * Machine-readable format.
     * Version control.
 
+Note: The proposed template does not aim to follow any [standard for geospatial metadata](https://en.wikipedia.org/wiki/Geospatial_metadata), so as to fulfill the principle of human-friendliness. You may need to modify this template to make it fit into a standard if you wish.
+
 ## Basic Template Contents
 
 The proposed template is to collate the basic information as pairs of field/value, organized into six thematic sections, or "parent nodes". 
@@ -40,12 +42,12 @@ The proposed template is to collate the basic information as pairs of field/valu
 |processing|Information about the processing that was applied to the data to produce the mosaic|
 |mosaic|Information about the mosaic produced|
 |qualityControl|Information about quality control performed on the mosaic|
-|metadata|Information about this metadata template|
+|metadataTemplate|Information about this metadata template|
 
-We list below our proposed sections and field/value pairs. See further below for the implementation.
+We list and explain below our proposed sections and field/value pairs. See further down for an example implementation.
 
 ### 1. survey
-A section containing the basic information about the survey that produced the dataset from which the mosaic was created:
+The `survey` section contains basic information about the survey that produced the dataset from which the mosaic was created:
 
 |Parent node|Field|Description|Example|
 |---|---|---|---|
@@ -62,7 +64,7 @@ A section containing the basic information about the survey that produced the da
 No need to go into too many details here since this information is most likely also present in reports, and bathymetry metadata. In fact, the information in this section can most likely be directly obtained from any existing "acquisition metadata".
 
 ### 2. data
-A section containing the basic information about the data that went into the mosaic:
+The `data` section contains basic information about the data that was processed into the mosaic:
 
 |Parent node|Field|Description|Example|
 |---|---|---|---|
@@ -72,12 +74,12 @@ A section containing the basic information about the data that went into the mos
 |data|filesList|List of raw data files used in mosaic separated by semicolons|All files available 
 |data|comments|Free text field|Very wide range of absorption coefficients in data
 
-The difference with the previous section is that the information here might be variable within the dataset, so while the information from the previous section could be just copied-and-pasted from the "acquisition metadata", this one here may need some adjustment by the author of the mosaic. For example, we include here the list of files that actually went into the mosaic, or the frequency used for the mosaic (the dataset may be multispectral). 
+While the previous `survey` section contained information about the survey as a whole, this distinct `data` section may be used to further specify which data of the survey was included in the processing. For example, we include here the list of files that actually went into the mosaic, or the frequency used for the mosaic (the dataset may be multispectral). 
 
 Writing key acquisition settings here (frequency, acquisition mode) also emphasize the typical recommendation that backscatter mosaics be produced using data acquired in a constant setting.
 
 ### 3. processing
-A section containing the basic information about the processing applied to the data to produce the mosaic:
+The `processing` section contains basic information about the processing applied to the data to produce the mosaic:
 
 |Parent node|Field|Description|Example|
 |---|---|---|---|
@@ -85,10 +87,10 @@ A section containing the basic information about the processing applied to the d
 |processing|softwareVersion|Version of processing software|7.10.3
 |processing|comments|Free text field|None
 
-Keeping this section basic because any further details would be software-dependent. See below on how to augment this section with processing details.
+This section is short because any further details would be software-dependent. See below on how to augment this section with processing details.
 
 ### 4. mosaic
-A section containing the basic information about the mosaic created:
+The `mosaic` section contains basic information about the mosaic created:
 
 |Parent node|Field|Description|Example|
 |---|---|---|---|
@@ -98,10 +100,10 @@ A section containing the basic information about the mosaic created:
 |mosaic|projection|Mosaic datum and projection|WGS84-UTM31N
 |mosaic|pixelSizeM|Pixel size in meters|1
 |mosaic|status|Mosaic version|v3 (preliminary)
-|mosaic|comments|Free text field|To update when provided with final bathymetry grid
+|mosaic|comments|Free text field|More details in processing log (C:\Path\to\Clinton-2022-m-block34_BS_Processing_log.doc)
 
 ### 5. qualityControl
-A section containing the basic information about any quality control performed on the mosaic itself:
+The `qualityControl` section contains basic information about any quality control performed on the mosaic itself:
 
 |Parent node|Field|Description|Example|
 |---|---|---|---|
@@ -120,23 +122,17 @@ The quality grade scale currently in use at NGU is the following:
 |Poor|Data with substantial quality issues that will make interpretation challenging (e.g. widespread level changes or weather related noise)|
 |Very Poor|Data of very low quality with widespread issues which will make interpretation very difficult|
 
-### 6. metadata
-A section containing information about this metadata template:
-
-IMPORTANT: Do not change the VALUES of those fields as they allow identifying this specific template.
+### 6. metadataTemplate
+The `metadataTemplate` section contains information about this metadata template:
 
 |Parent node|Field|Description|VALUE|
 |---|---|---|---|
-|metadata|name|Authority for this metadata template (DO NOT CHANGE)|NGU
-|metadata|version|Version of this metadata template (DO NOT CHANGE)|0.4
-|metadata|author|Authors of this metadata template (DO NOT CHANGE)|NGU (Alexandre Schimel; Margaret Dolan)
-|metadata|date|Date of creation of this metadata template (DO NOT CHANGE)|08/09/2023
+|metadataTemplate|name|Name of this metadata template|BSMETA - NGU Backscatter Metadata Template
+|metadataTemplate|version|Version of this metadata template|0.5
+|metadataTemplate|contact|Contact for this metadata template|Shyam Chand (shyam.chand@ngu.no)
+|metadataTemplate|date|Date of creation of this metadata template|30/09/2024
 
-If you wish to modify this template, either mention it in the "metadata/comments" field below, or contact us to produce a new version.
- 
-|Parent node|Field|Description|Example|
-|---|---|---|---|
-|metadata|comments|Free text field|Template modified from original by John Smith, Antarctic Hydrographic Survey, on 03/07/2036
+IMPORTANT: The values in this section identify this exact template, so do not modify them if you reuse the template as it is. Only modify those values to create a new template.
 
 ## Augmenting the Processing Section
 
@@ -188,12 +184,6 @@ The metadata file is given the same name as the mosaic tif file (except with the
 Contents of text file `Clinton-2022-m-block34_BS_v3.json`:
 ```
 {
-    "metadata": {
-        "name": "NGU",
-        "version": "0.4",
-        "author": "NGU (Alexandre Schimel; Margaret Dolan)",
-        "date": "08/09/2023"
-    },
     "survey": {
         "project": "MAREANO",
         "year": 2022,
@@ -224,13 +214,13 @@ Contents of text file `Clinton-2022-m-block34_BS_v3.json`:
         "AVG_algorithm": "Flat",
         "AVG_windowSize": 300,
         "AVG_referenceBand": "Adaptive",
-        "AVG_applyAcrossLineBreaks": false,
+        "AVG_applyAcrossLineBreaks": FALSE,
         "navigationTimeWindow": 5,
-        "useAllSoundings": true,
+        "useAllSoundings": TRUE,
         "lineBlending": 20,
         "mosaicStyle": "blend",
         "filteringType": "dB Mean",
-        "fillGaps": true,
+        "fillGaps": TRUE,
         "comments": "None"
     },
     "mosaic": {
@@ -238,7 +228,7 @@ Contents of text file `Clinton-2022-m-block34_BS_v3.json`:
         "date": "09/03/2023",
         "filename": "Clinton-2022-m-block34_BS_v3.tif",
         "projection": "WGS84-UTM31N",
-        "pixelSize": 1,
+        "pixelSizeM": 1,
         "status": "v3 (preliminary)",
         "comments": "To update when provided with final bathymetry grid"
     },
@@ -247,6 +237,12 @@ Contents of text file `Clinton-2022-m-block34_BS_v3.json`:
         "date": "09/03/2023",
         "grade": "Fair",
         "comments": "None"
+    },
+    "metadataTemplate": {
+        "name": "BSMETA - NGU Backscatter Metadata Template",
+        "version": "0.5",
+        "contact": "Shyam Chand (shyam.chand@ngu.no)",
+        "date": "30/09/2024"
     }
 }
 ```
@@ -255,3 +251,4 @@ Contents of text file `Clinton-2022-m-block34_BS_v3.json`:
 
 * Alexandre Schimel ([The Geological Survey of Norway](https://www.ngu.no), alexandre.schimel@ngu.no)
 * Margaret Dolan (The Geological Survey of Norway)
+* Shyam Chand (The Geological Survey of Norway)

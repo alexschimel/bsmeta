@@ -1,0 +1,20 @@
+{
+    "processing": {
+        "processingMetadataSchema": "FMGT_v7.10.3_RevB",
+        "sourceData": "Source Data. e.g. Beam time series",
+        "referenceGridFilename": "Reference grid filename. e.g. B34_GRIDNODES.tif",	
+        "absorptionCoefficient": "Absorption coefficient. e.g. 0 (default)",
+        "backscatterRangeMin": "Backscatter range minimum value. e.g. -70 (default)",
+        "backscatterRangeMax": "Backscatter range maximum value. e.g. 10 (default)",
+        "AVG_algorithm": "AVG algorithm name. e.g. Flat",
+        "AVG_windowSize": "AVG window size in pings. e.g. 300",
+        "AVG_referenceBand": "AVG reference band. e.g. Adaptive",
+        "AVG_applyAcrossLineBreaks": "AVG Apply Across Line Breaks. e.g. FALSE",
+        "navigationTimeWindow": "Navigation time window. e.g. 5",
+        "useAllSoundings": "Use all soundings checkbox. e.g. TRUE",
+        "lineBlending": "Line blending. e.g. 20",
+        "mosaicStyle": "Mosaic style. e.g. blend",
+        "filteringType": "Filtering type. e.g. dB Mean",
+        "fillGaps": "Fill gaps. e.g. TRUE"
+    }
+}
