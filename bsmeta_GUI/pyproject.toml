@@ -1,0 +1,4 @@
+[project]
+name = "bsmeta_GUI"
+version = "0.1.0"
+dependencies = ["tkinter", "json"]

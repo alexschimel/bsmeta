@@ -29,7 +29,7 @@
         "projection": "Mosaic datum and projection. e.g. WGS84-UTM31N",
         "pixelSizeM": "Pixel size in meters. e.g. 1",
         "status": "Mosaic version. e.g. v3 (preliminary)",
-        "comments": "Free text field. e.g. More details in processing log (C:\Path\to\Clinton-2022-m-block34_BS_Processing_log.doc)"
+        "comments": "Free text field. e.g. More details in processing log (C:/Path/to/Clinton-2022-m-block34_BS_Processing_log.doc)"
     },
     "qualityControl": {
         "author": "QC author. e.g. Margaret Dolan",
