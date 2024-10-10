@@ -69,7 +69,7 @@ The `data` section contains basic information about the data that was processed 
 |Parent node|Field|Description|Example|
 |---|---|---|---|
 |data|frequencyKHz|Operating frequency in kHz|300
-|data|pulseLengthMicroSec|Pulse length in microseconds|0.000107
+|data|pulseLengthSec|Pulse length in seconds|0.000107
 |data|acquisitionMode|Sonar acquisition mode|Medium CW
 |data|filesList|List of raw data files used in mosaic|All files available 
 |data|comments|Free text field|Very wide range of absorption coefficients in data
@@ -197,7 +197,7 @@ Contents of text file `Clinton-2022-m-block34_BS_v3.json`:
     },
     "data": {
         "frequencyKHz": 300,
-        "pulseLengthMicroSec": 0.000107,
+        "pulseLengthSec": 0.000107,
         "acquisitionMode": "Medium CW",
         "filesList": "All files available",
         "comments": "Very wide range of absorption coefficients in data"

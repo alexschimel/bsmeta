@@ -12,7 +12,7 @@
     },
     "data": {
         "frequencyKHz": "Operating frequency in kHz. e.g. 300",
-        "pulseLengthMicroSec": "Pulse length in microseconds. e.g. 0.000107",
+        "pulseLengthSec": "Pulse length in seconds. e.g. 0.000107",
         "acquisitionMode": "Sonar acquisition mode. e.g. Medium CW",
         "filesList": "List of raw data files used in mosaic. e.g. All files available",
         "comments": "Free text field. e.g. Very wide range of absorption coefficients in data"
