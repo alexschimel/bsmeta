@@ -262,7 +262,7 @@ Contents of text file `Clinton-2022-m-block34_BS_v3.json`:
 
 ## Resources
 
-Find revised versions of this template in the `templates` folder, as well as a range of processing sub-templates.
+Find revised versions of this template, as well as processing sub-templates available, in the `templates` folder.
 
 ## Authors
 
