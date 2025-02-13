@@ -1,0 +1,10 @@
+{
+    "processing": {
+        "processingMetadataSchema": "AutoClean_v2024.3.1.1",
+        "sourceData": "Record type, e.g. Seabed Image or Per Beam Intensity for Kongsberg",
+        "staticOffset": "Static Offset per system in dB (if enabled). Default is None",
+	    "clipRawBackscatter": "Min and Max accepted values for raw backscatter (if enabled). Default is None",	
+        "AVG_mode": "AVG mode (if enabled), e.g. Interpolated, File Based, or Project Based",
+        "AVG_patchPingcount": "AVG patch ping count (if enabled), e.g. Auto, One Per File, etc."
+    }
+}

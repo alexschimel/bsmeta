@@ -136,7 +136,7 @@ IMPORTANT: The values in this section identify this exact template, so do not mo
 
 ## Augmenting the Processing Section
 
-Additional information about the processing applied would be welcome. Here is for example a set of fields that are applicable to software FMGT v7.10.3.
+Additional information about the processing applied would be very useful. Here is for example a set of informative fields if you are using QPS FMGT v7.10.3.
 
 |Parent node|Field|Description|Example|
 |---|---|---|---|
@@ -156,13 +156,26 @@ Additional information about the processing applied would be welcome. Here is fo
 |processing|filteringType|Filtering type|dB Mean
 |processing|fillGaps|Fill gaps|TRUE
 
-The problem here is that these fields are dependent on the processing software and the methodology used. If we use a different software, or a different version of the software, or even simpler we use a new method from the same software and version, this entire set needs to be modified. And if we do this, then the entire template is modified with every minute change in processing, and it is no longer a template.
+The problem here is that these fields are dependent on the processing software and the methodology used. If we use a different software, or a different version of the software, or a different method from a given software and version, this entire set of fields may no longer be applicable.
 
-The way to solve this is that to control these processing details as a sub-template, with its own version control. Below is the additional field for version-control:
+The way to solve this is to template and version-control these processing details. For example, those fields above form a sub-template that can be identified with the version field below:
 
 |Parent node|Field|Description|VALUE|
 |---|---|---|---|
 |processing|processingMetadataSchema|Version number for this processing sub-template (DO NOT MODIFY)|FMGT_v7.10.3_RevB
+
+The indication of the software version number in this field allows creating different sub-templates for different software versions. The "Rev" letter at the end of the version number allows for further revisions to the sub-template for a given software and version, for example for a different method.
+
+To illustrate the flexibility of this approach, below is another processing sub-template, this time relevant for Beamworx AutoClean. This sub-template was created with Beamworx AutoClean version 2024.3.1.1, hence the name of the sub-template:
+
+|Parent node|Field|Description|Example|
+|---|---|---|---|
+|processing|processingMetadataSchema|Version number for this processing sub-template (DO NOT MODIFY)|AutoClean_v2024.3.1.1
+|processing|sourceData|Record type, e.g. Seabed Image or Per Beam Intensity for Kongsberg|Seabed Image
+|processing|staticOffset|Static Offset per system in dB (if enabled)"|None (default)
+|processing|clipRawBackscatter|Min and Max accepted values for raw backscatter (if enabled)|None (default)
+|processing|AVG_mode|AVG mode (if enabled), e.g. Interpolated, File Based, or Project Based|Interpolated (default)
+|processing|AVG_patchPingcount|AVG patch ping count (if enabled), e.g. Auto, One Per File, etc.|Auto (default)
 
 ## In practice
 
